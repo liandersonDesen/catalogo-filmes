@@ -30,3 +30,16 @@ model Filmes{
   genero String
   classificacao classificacao @default(LIVRE)
 }
+
+enum TipoUsuario{
+  ADMIN
+  MEMBRO
+}
+
+model Usuario{
+  id String @id @default(uuid())
+  nome String
+  email String @unique
+  senha String
+  role TipoUsuario @default(MEMBRO)
+}

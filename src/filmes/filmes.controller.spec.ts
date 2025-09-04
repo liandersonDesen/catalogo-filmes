@@ -33,7 +33,7 @@ const mockFilmesService= {
         remove: jest.fn(),
 }
 
-describe("User Controller Tests", ()=>{
+describe("Filmes Controller Tests", ()=>{
     let controller :FilmesController;
 
     beforeEach(async () => {

@@ -9,6 +9,13 @@ async function bootstrap() {
   .setTitle('API de Filmes')
   .setDescription('Documentação Swagger para CRUD de Filmes')
   .setVersion('1.0')
+  .addBearerAuth({// Esquema JWT Bearer
+    type:'http',
+    scheme:'bearer',
+    bearerFormat:'JWT',
+    name:'Authorization',
+    in:'header'
+    })
   .build();
 
   const document = SwaggerModule.createDocument(app, config);
