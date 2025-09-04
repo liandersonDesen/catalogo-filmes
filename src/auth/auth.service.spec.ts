@@ -17,7 +17,7 @@ const mockUser:Usuario={
       nome: 'Jose',
       email: 'jose@gmail.com',
       senha:"qasxcvnmkiu765redcvb",
-      role: TipoUsuario.COMUM,
+      role: TipoUsuario.MEMBRO,
     }
 const mockPrisma = {
   usuario: {
@@ -112,7 +112,7 @@ it('login deve retornar access_token válido', async () => {
     jest.spyOn(service, 'validateUser').mockResolvedValueOnce({
       id: '1',
       email: mockUser.email,
-      role: TipoUsuario.COMUM,
+      role: TipoUsuario.MEMBRO,
     } as any);
 
     mockJwt.sign.mockReturnValue('mockedToken')
@@ -125,7 +125,7 @@ it('login deve retornar access_token válido', async () => {
     expect(mockJwt.sign).toHaveBeenCalledWith({
       sub: '1',
       email: mockUser.email,
-      role: TipoUsuario.COMUM,
+      role: TipoUsuario.MEMBRO,
     });
     expect(result).toEqual({ acess_token: 'mockedToken' });
   });

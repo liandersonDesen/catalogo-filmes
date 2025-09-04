@@ -1,98 +1,197 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🎬 Catálogo de Filmes com NestJS
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## 📖 Descrição do Projeto
+Este é um projeto **back-end** para um catálogo de filmes, desenvolvido com **NestJS**, **Prisma** e **PostgreSQL**.  
+A API RESTful permite gerenciar filmes e usuários com as seguintes funcionalidades:
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+- ✅ Cadastro e login de usuários com segurança  
+- 🎥 Gerenciamento de filmes (**CRUD completo**)  
+- 🔑 Autenticação com **JWT (JSON Web Tokens)** para proteger as rotas  
+- 🔒 Criptografia de senhas usando **Bcrypt**  
+- 🧪 Testes unitários e de integração (**Jest**)  
+- 🐳 Contêinerização completa da aplicação e do banco de dados com **Docker Compose**
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🚀 Tecnologias Utilizadas
+- [NestJS](https://nestjs.com/) — Framework Node.js para aplicações escaláveis  
+- [Prisma](https://www.prisma.io/) — ORM moderno e intuitivo  
+- [PostgreSQL](https://www.postgresql.org/) — Banco de dados relacional  
+- [Docker Compose](https://docs.docker.com/compose/) — Gerenciamento de múltiplos contêineres  
+- [Bcrypt](https://www.npmjs.com/package/bcrypt) — Hash de senhas  
+- [JWT](https://jwt.io/) — Autenticação segura  
+- [Jest](https://jestjs.io/) — Testes automatizados  
 
-## Project setup
+---
 
-```bash
-$ npm install
-```
+## ⚙️ Configuração do Ambiente e Execução
 
-## Compile and run the project
+### 🔹Clone o repositório:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+git clone https://github.com/liandersonDesen/catalogo-filmes.git
+cd catalogo-filmes
 ```
+### 🔹 Pré-requisitos
+- Docker  
+- Docker Compose  
 
-## Run tests
+### 🔹 Variáveis de Ambiente (.env)
+ 
+#### Antes de rodar o projeto
+
+- Crie um arquivo chamado **`.env`** na raiz do projeto, copiando o conteúdo do arquivo **`.env.example`**.
+
+- Preencha o novo arquivo **`.env`** com os valores corretos para o seu ambiente.
+
+
+### 🔹 Executando com Docker Compose
+
+Suba os contêineres da aplicação e do banco de dados:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+docker-compose up --build
 ```
 
-## Deployment
+> O comando `--build` garante que as imagens sejam recriadas a partir dos Dockerfiles.  
+> Após inicialização, a aplicação estará disponível em:  
+👉 **http://localhost:3000**
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+---
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+## 🗄️ Estrutura do Banco de Dados
+O **Prisma** gerencia o schema e aplica migrações automaticamente ao iniciar o contêiner.
+
+### 🔹 Modelos do Prisma
+Arquivo: `prisma/schema.prisma`  
+
+- **Filmes**: título, ano, gênero, duração  
+- **Usuario**: nome, e-mail, senha, role (`ADMIN` ou `MEMBRO`)  
+
+---
+
+## 📌 Rotas da API
+A documentação da API está disponível em:  
+👉 **http://localhost:3000/api** (via Swagger)
+
+### 🔹 Autenticação (`/auth`)
+- `POST /auth/register` → Registra um novo usuário  
+- `POST /auth/login` → Login e retorno de token JWT  
+
+### 🔹 Perfil (`/profile`)  
+> Requer **JWT no cabeçalho**: `Authorization: Bearer <token>`  
+
+- `PUT /profile` → Atualiza o perfil do usuário logado  
+- `DELETE /profile` → Remove a conta do usuário logado  
+
+### 🔹 Filmes (`/filmes`)  
+> Operações de escrita requerem **ADMIN**  
+
+- `GET /filmes` → Lista todos os filmes  
+- `GET /filmes/:id` → Busca um filme pelo ID  
+- `POST /filmes` → Cria um novo filme  
+- `PUT /filmes/:id` → Atualiza um filme  
+- `DELETE /filmes/:id` → Remove um filme  
+
+### 🔹 Usuários (`/users`)  
+> Requer **JWT + ADMIN**  
+
+- `GET /users` → Lista todos os usuários  
+- `GET /users/:id` → Busca usuário por ID  
+- `PUT /users/:id` → Atualiza informações do usuário  
+- `DELETE /users/:id` → Remove um usuário  
+
+---
+
+## 📌 Exemplos de Requests
+
+### 🔹 Registro de Usuário
+**Request**  
+```json
+POST /auth/register
+{
+  "nome": "João Silva",
+  "email": "joao@email.com",
+  "senha": "123456"
+}
+```
+
+**Response**  
+```json
+{
+  "id": "uuid",
+  "nome": "João Silva",
+  "email": "joao@email.com",
+  "role": "MEMBRO"
+}
+```
+
+---
+
+### 🔹 Login de Usuário
+**Request**  
+```json
+POST /auth/login
+{
+  "email": "joao@email.com",
+  "senha": "123456"
+}
+```
+
+**Response**  
+```json
+{
+  "access_token": "jwt_token_aqui"
+}
+```
+
+---
+
+### 🔹 Criação de Filme (ADMIN)
+**Request**  
+```json
+POST /filmes
+Authorization: Bearer <token>
+
+{
+  "titulo": "Inception",
+  "ano": 2010,
+  "duracao": 148
+}
+```
+
+**Response**  
+```json
+{
+  "id": "uuid",
+  "titulo": "Inception",
+  "ano": 2010,
+  "duracao": 148
+}
+```
+
+---
+
+## 🧪 Testes
+
+Acesse o contêiner da aplicação:
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+docker-compose exec app sh
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Execute os testes unitários:
 
-## Resources
+```bash
+npm run test
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+---
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## 👨‍💻 Autor
+**José Lianderson Ribeiro** — [LiandersonDesen](https://github.com/LiandersonDesen)
 
-## Support
+---
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## 📜 Licença
+Este projeto está sob a licença **MIT**.
