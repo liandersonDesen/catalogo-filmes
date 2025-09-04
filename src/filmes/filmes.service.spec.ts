@@ -36,7 +36,7 @@ const mockPrisma = {
 
 describe("FilmesService", () => {
     let service: FilmesService;
-
+    let prisma : PrismaService
     // Antes de cada teste, criamos uma instância do FilmesService com o PrismaService mockado
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
@@ -47,6 +47,7 @@ describe("FilmesService", () => {
         }).compile();
 
         service = module.get<FilmesService>(FilmesService);
+        prisma = module.get<PrismaService>(PrismaService);
     });
     it("deve criar um novo filme", async () => {
         const dto:CreateFilmesDto = { 
