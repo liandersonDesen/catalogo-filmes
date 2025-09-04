@@ -3,7 +3,7 @@ version: '3.8'
 services:
   postgres:
     image: postgres
-    container_name: postegresdb_atv_docker
+    container_name: postegresdb_docker
     env_file: 
       - .env
     environment: 
@@ -12,12 +12,11 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5432:5432"
-  
   api:
     build: 
       context: .
       dockerfile: dockerfile.api
-    container_name: nest-api_atv_docker
+    container_name: nest-api-docker
     env_file:
       - .env
     ports:
