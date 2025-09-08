@@ -177,7 +177,7 @@ Authorization: Bearer <token>
 Acesse o contêiner da aplicação:
 
 ```bash
-docker-compose exec app sh
+docker-compose exec api sh
 ```
 
 Execute os testes unitários:

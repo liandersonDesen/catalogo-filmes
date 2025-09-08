@@ -28,6 +28,8 @@ model Filmes{
   ano Int
   duracao Int
   genero String
+  preco Float
+  emEstoque Boolean
   classificacao classificacao @default(LIVRE)
 }
 
