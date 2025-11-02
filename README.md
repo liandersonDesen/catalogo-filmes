@@ -55,7 +55,7 @@ docker-compose up --build
 
 > O comando `--build` garante que as imagens sejam recriadas a partir dos Dockerfiles.  
 > Após inicialização, a aplicação estará disponível em:  
-👉 **http://localhost:3000**
+👉 **http://localhost:3333**
 
 ---
 
@@ -72,7 +72,7 @@ Arquivo: `prisma/schema.prisma`
 
 ## 📌 Rotas da API
 A documentação da API está disponível em:  
-👉 **http://localhost:3000/api** (via Swagger)
+👉 **http://localhost:3333/api** (via Swagger)
 
 ### 🔹 Autenticação (`/auth`)
 - `POST /auth/register` → Registra um novo usuário  
