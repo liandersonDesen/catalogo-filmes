@@ -20,7 +20,7 @@ services:
     env_file:
       - .env
     ports:
-      - "${PORT}:${PORT}"
+      - "3333:${PORT}"
     depends_on: 
       - postgres
     environment:
