@@ -28,8 +28,9 @@ async function bootstrap() {
       transform: true, 
     })
   );
+  const PORT = process.env.NODE_ENV === 'production' ? 3333 : (process.env.PORT ?? 3000)
 
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(PORT);
 
   const logger = new Logger('Bootstrap'); 
   const appUrl = await app.getUrl();
