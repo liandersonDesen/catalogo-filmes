@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { ValidationPipe } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -30,5 +30,10 @@ async function bootstrap() {
   );
 
   await app.listen(process.env.PORT ?? 3000);
+
+  const logger = new Logger('Bootstrap'); 
+  const appUrl = await app.getUrl();
+  logger.log(`🚀 Servidor rodando em: ${appUrl.replace('[::1]', 'localhost').replace('0.0.0.0', 'localhost')}`);
+  
 }
 bootstrap();
