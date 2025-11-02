@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { classificacao } from "@prisma/client";
-import { IsEnum, IsInt, IsString, Length, Max, Min } from "class-validator";
+import { IsBoolean, IsEnum, IsInt, IsNumber, IsString, Length, Max, Min } from "class-validator";
 
 export class CreateFilmesDto{
     @ApiProperty({ example: 'Matrix', description: 'Título do filme' })
@@ -22,6 +22,15 @@ export class CreateFilmesDto{
     @ApiProperty({ example: 'Ação', description: 'Gênero principal' })
     @IsString()
     genero:string
+
+    @ApiProperty({ example: 29.99, description: 'Preço de venda' })
+    @IsNumber()
+    @Min(0.01) 
+    preco: number;
+
+    @ApiProperty({ example: true, description: 'Indica se o filme está em estoque' })
+    @IsBoolean()
+    emEstoque: boolean;
 
     @ApiProperty({ enum: classificacao, description: 'Classificação indicativa' })
     @IsEnum(classificacao)
